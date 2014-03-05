@@ -1,0 +1,138 @@
+/**
+ *	Appearance
+ */
+
+.linear-gradient(@color_start: #fff, @color_end: #000) {
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @color_start), color-stop(100%, @color_end));
+	background-image: -webkit-linear-gradient(top, @color_start 0%, @color_end 100%);
+	background-image: -moz-linear-gradient(top, @color_start 0%, @color_end 100%);
+	background-image: -ms-linear-gradient(top, @color_start 0%, @color_end 100%);
+	background-image: -o-linear-gradient(top, @color_start 0%, @color_end 100%);
+	background-image: linear-gradient(top, @color_start 0%, @color_end 100%);
+	@ie_gradient: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d')", argb(@color_start), argb(@color_end)));
+	-ms-filter: @ie_gradient;
+	filter: @ie_gradient;
+}
+
+.linear-gradient(@color_a, @offset_a, @color_b, @offset_b, @color_c, @offset_c) {
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(@offset_a, @color_a), color-stop(@offset_b, @color_b), color-stop(@offset_c, @color_c));
+	background-image: -webkit-linear-gradient(top, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c);
+	background-image: -moz-linear-gradient(top, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c);
+	background-image: -ms-linear-gradient(top, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c);
+	background-image: -o-linear-gradient(top, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c);
+	background-image: linear-gradient(top, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c);
+}
+
+.linear-gradient(@color_a, @offset_a, @color_b, @offset_b, @color_c, @offset_c, @color_d, @offset_d) {
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(@offset_a, @color_a), color-stop(@offset_b, @color_b), color-stop(@offset_c, @color_c), color-stop(@offset_d, @color_d));
+	background-image: -webkit-linear-gradient(top, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c, @color_d, @offset_d);
+	background-image: -moz-linear-gradient(top, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c, @color_d, @offset_d);
+	background-image: -ms-linear-gradient(top, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c, @color_d, @offset_d);
+	background-image: -o-linear-gradient(top, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c, @color_d, @offset_d);
+	background-image: linear-gradient(top, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c, @color_d, @offset_d);
+}
+
+.linear-gradient-horizontal(@color_start: #fff, @color_end: #000) {
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, @color_start), color-stop(100%, @color_end));
+	background-image: -webkit-linear-gradient(left, @color_start 0%, @color_end 100%);
+	background-image: -moz-linear-gradient(left, @color_start 0%, @color_end 100%);
+	background-image: -ms-linear-gradient(left, @color_start 0%, @color_end 100%);
+	background-image: -o-linear-gradient(left, @color_start 0%, @color_end 100%);
+	background-image: linear-gradient(left, @color_start 0%, @color_end 100%);
+	@ie_gradient: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType= 1)", argb(@color_start), argb(@color_end)));
+	-ms-filter: @ie_gradient;
+	filter: @ie_gradient;
+}
+
+.linear-gradient-horizontal(@color_a, @offset_a, @color_b, @offset_b, @color_c, @offset_c) {
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(@offset_a, @color_a), color-stop(@offset_b, @color_b), color-stop(@offset_c, @color_c));
+	background-image: -webkit-linear-gradient(left, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c);
+	background-image: -moz-linear-gradient(left, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c);
+	background-image: -ms-linear-gradient(left, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c);
+	background-image: -o-linear-gradient(left, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c);
+	background-image: linear-gradient(left, @color_a @offset_a, @color_b @offset_b, @color_c @offset_c);
+}
+
+.appearance(@appearance: none) {
+	-webkit-appearance: @appearance;
+	-moz-appearance: @appearance;
+	appearance: @appearance;
+}
+
+.box-sizing(@type: border-box) {
+	-webkit-box-sizing: @type;
+	-moz-box-sizing: @type;
+	box-sizing: @type;
+}
+
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.border-radius(@a, @b) {
+	-webkit-border-radius: @a @b;
+	-moz-border-radius: @a @b;
+	border-radius: @a @b;
+}
+
+.border-radius(@a, @b, @c, @d) {
+	-webkit-border-radius: @a @b @c @d;
+	-moz-border-radius: @a @b @c @d;
+	border-radius: @a @b @c @d;
+}
+
+.box-shadow(@box_shadow: #000 0 5px 10px) {
+	-webkit-box-shadow: @box_shadow;
+	-moz-box-shadow: @box_shadow;
+	box-shadow: @box_shadow;
+}
+
+.box-shadow(@a, @b) {
+	-webkit-box-shadow: @a, @b;
+	-moz-box-shadow: @a, @b;
+	box-shadow: @a, @b;
+}
+
+.box-shadow(@a, @b, @c) {
+	-webkit-box-shadow: @a, @b, @c;
+	-moz-box-shadow: @a, @b, @c;
+	box-shadow: @a, @b, @c;
+}
+
+.box-shadow(@a, @b, @c, @d) {
+	-webkit-box-shadow: @a, @b, @c, @d;
+	-moz-box-shadow: @a, @b, @c, @d;
+	box-shadow: @a, @b, @c, @d;
+}
+
+.filter(@a) {
+	-webkit-filter: @a;
+	-moz-filter: @a;
+	filter: @a;
+}
+
+.filter(@a, @b) {
+	-webkit-filter: @a, @b;
+	-moz-filter: @a, @b;
+	filter: @a, @b;
+}
+
+.filter(@a, @b, @c) {
+	-webkit-filter: @a, @b, @c;
+	-moz-filter: @a, @b, @c;
+	filter: @a, @b, @c;
+}
+
+.filter(@a, @b, @c, @d) {
+	-webkit-filter: @a, @b, @c, @d;
+	-moz-filter: @a, @b, @c, @d;
+	filter: @a, @b, @c, @d;
+}
+
+.grayscale(...) {
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+	filter: gray;
+	-webkit-filter: grayscale(100%);
+}

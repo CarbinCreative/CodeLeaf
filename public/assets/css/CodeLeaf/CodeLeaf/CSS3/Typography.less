@@ -1,0 +1,37 @@
+/**
+ *	Typography
+ */
+
+@default_font_size: 16;
+
+.wrap(...) {
+	text-wrap: wrap;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	word-wrap: break-word;
+}
+
+.user-select(@user_select) {
+	-webkit-user-select: @user_select;
+	-moz-user-select: @user_select;
+	user-select: @user_select;
+}
+
+.tab-size(@tab_size: 4) {
+	-webkit-tab-size: @tab_size;
+	-moz-tab-size: @tab_size;
+	-o-tab-size: @tab_size;
+	tab-size: @tab_size;
+}
+
+.font-size(@font_size: 16, @multiplier: 1.5) {
+	margin-bottom: unit(ceil(@default_font_size * @multiplier), px);
+	font-size: unit(@font_size, px);
+	line-height: unit(ceil(@font_size * @multiplier), px);
+}
+
+.truncate-text(...) {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

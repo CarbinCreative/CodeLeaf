@@ -1,0 +1,513 @@
+@charset "UTF-8";
+
+
+
+/**
+ *	Imports
+ */
+
+@import "CodeLeaf/Core/Reset.less";
+@import "CodeLeaf/Core/Colors.less";
+
+@import "CodeLeaf/CSS3/Appearance.less";
+@import "CodeLeaf/CSS3/Transforms.less";
+@import "CodeLeaf/CSS3/Typography.less";
+
+@import "CodeLeaf/Core/Icons.less";
+@import "CodeLeaf/Core/Elements.less";
+@import "CodeLeaf/Core/Interface.less";
+
+@import "CodeLeaf/Pages.less";
+@import "CodeLeaf/Brushes.less";
+
+@import url("//fonts.googleapis.com/css?family=Roboto:100,300,300italic,400,400italic,700,700italic|Montserrat:700");
+
+
+
+/**
+ *	Generics
+ */
+
+* { .box-sizing; }
+
+html, body {
+	height: 100%;
+	min-height: 100%;
+}
+
+div#wrapper, .wrap {
+	margin: 0 auto;
+}
+
+.wrap {
+	width: 100%!important;
+}
+
+.grid, .deux, .layout, .columns, .narrow-layout {
+	width: 100%;
+}
+
+body.contain.wrap-960 div#wrapper,
+body.wrap-960 .wrap {
+	max-width: 960px;
+}
+
+body.contain.wrap-1200 div#wrapper,
+body.wrap-1200 .wrap {
+	max-width: 1200px;
+}
+
+.image.aspect {
+	position: relative;
+	height: 0;
+}
+
+.image.aspect img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+
+.image.aspect.r916 {
+	padding-bottom: 56.25%;
+}
+
+.image.aspect.r43 {
+	padding-bottom: 75%;
+}
+
+
+
+/**
+ *	Debug
+ */
+
+div#layout-mode:after {
+	padding: 4px 8px;
+	.background-color-asbestos;
+	font: 900 12px Roboto, helvetica, arial, sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	text-shadow: rgba(0, 0, 0, .5) 0px 0px 2px;
+	color: #fff;
+	display: inline-block;
+	position: fixed;
+	right: 25px;
+	bottom: 25px;
+	z-index: 9999;
+	.box-shadow(inset rgba(0, 0, 0, .2) 0 0 0 1px, inset rgba(255, 255, 255, .3) 0 0 20px);
+	.border-radius(3px);
+}
+
+
+/* Media Queries */
+
+@with_retina:							~" and (-webkit-min-device-pixel-ratio: 2)";
+@mobile:									~"only screen and (min-width: 320px) and (max-width: 568px)";
+@mobile_portrait:					~"only screen and (min-width: 320px) and (max-width: 568px) and (orientation: portrait)";
+@mobile_landscape:				~"only screen and (min-width: 320px) and (max-width: 568px) and (orientation: landscape)";
+@tablet:									~"only screen and (min-width: 569px) and (max-width: 1024px)";
+@tablet_portrait:					~"only screen and (min-width: 569px) and (max-width: 1024px) and (orientation: portrait)";
+@tablet_landscape:				~"only screen and (min-width: 569px) and (max-width: 1024px) and (orientation: landscape)";
+@netbook:									~"only screen and (min-width: 1025px)";
+@desktop:									~"only screen and (min-width: 1400px)";
+
+
+
+/* Query: All */
+@import "CodeLeaf/MediaQuery/All.less";
+@import "CodeLeaf/Typography/All.less";
+
+/* Query: Devices */
+@media @mobile, @tablet {
+
+	.grid {
+
+		.col-a,
+		.col-b,
+		.col-c,
+		.col-d {
+			margin-left: 0;
+			margin-right: 0;
+			width: 49%;
+			float: left;
+		}
+
+		.col-a,
+		.col-c {
+			margin-right: 1%;
+		}
+
+		.col-b,
+		.col-d {
+			margin-left: 1%;
+			float: right;
+		}
+
+	}
+
+	.deux {
+
+		.col-a,
+		.col-b {
+			width: 47%;
+			float: left;
+		}
+
+		.col-a {
+			margin-right: 3%;
+		}
+
+		.col-b {
+			margin-left: 3%;
+		}
+
+	}
+
+	.layout {
+
+		.col-a,
+		.col-b {
+			width: 65%;
+			float: left;
+		}
+
+		.col-a.sidebar,
+		.col-b.sidebar {
+			width: 30%;
+		}
+
+		.col-a {
+			padding-right: 5%;
+		}
+
+		.col-a.sidebar {
+			padding-right: 0;
+		}
+
+		.col-b {
+			padding-left: 5%;
+		}
+
+		.col-b.sidebar {
+			padding-left: 0;
+		}
+
+	}
+
+	@import "CodeLeaf/MediaQuery/Device.less";
+	@import "CodeLeaf/Typography/Device.less";
+
+	.media-device();
+
+}
+
+/* Query: Mobile */
+@media @mobile {
+
+	div#layout-mode,
+	div#layout-mode:after {
+		content: "Mobile";
+	}
+
+	.hide-for-mobile {
+		display: none!important;
+	}
+
+	.layout, .deux {
+		width: 100%!important;
+		display: block;
+	}
+
+	.layout, .narrow-layout, .deux {
+
+		.col-a,
+		.col-b {
+			margin: 0!important;
+			padding: 0;
+			width: 100%!important;
+			display: block;
+			clear: both;
+		}
+
+	}
+
+	@import "CodeLeaf/MediaQuery/Mobile.less";
+	@import "CodeLeaf/Typography/Mobile.less";
+
+	.media-mobile();
+
+}
+
+/* Query: Mobile Portrait */
+@media @mobile_portrait {
+
+	@import "CodeLeaf/MediaQuery/Mobile/Portrait.less";
+
+	.media-mobile-portrait();
+
+}
+
+/* Query: Mobile Landscape */
+@media @mobile_landscape {
+
+	@import "CodeLeaf/MediaQuery/Mobile/Landscape.less";
+
+	.media-mobile-landscape();
+
+}
+
+/* Query: Tablet */
+@media @tablet {
+
+	div#layout-mode,
+	div#layout-mode:after {
+		content: "Tablet";
+	}
+
+	.hide-for-tablet {
+		display: none!important;
+	}
+
+	.deux {
+
+		.col-a,
+		.col-b {
+			margin: 0!important;
+			width: 50%;
+			float: left;
+		}
+
+	}
+
+	.columns {
+
+		.col-a,
+		.col-b,
+		.col-c,
+		.col-d {
+			width: 33.3%;
+			float: left;
+		}
+
+		.col-b {
+			margin-left: 2%;
+			margin-right: 2%;
+		}
+
+		.col-d {
+			margin-top: 1%;
+			width: 100%;
+			clear: both;
+		}
+
+		.col-b {
+			margin-left: 2%;
+			margin-right: 2%;
+		}
+
+	}
+
+	.narrow-layout {
+
+		> .col-a,
+		> .col-b {
+			width: 70%;
+			float: left;
+		}
+
+		> .col-a.sidebar,
+		> .col-b.sidebar {
+			margin-right: 0;
+			margin-left: 0;
+			width: 25%;
+		}
+
+		> .col-a {
+			margin-right: 5%;
+			margin-left: 0;
+		}
+
+		> .col-b {
+			margin-right: 0;
+			margin-left: 5%;
+		}
+
+	}
+
+	@import "CodeLeaf/MediaQuery/Tablet.less";
+	@import "CodeLeaf/Typography/Tablet.less";
+
+	.media-tablet();
+
+}
+
+/* Query: Tablet Portrait */
+@media @tablet_portrait {
+
+	@import "CodeLeaf/MediaQuery/Tablet/Portrait.less";
+
+	.media-tablet-portrait();
+
+}
+
+/* Query: Tablet Landscape */
+@media @tablet_landscape {
+
+	@import "CodeLeaf/MediaQuery/Tablet/Landscape.less";
+
+	.media-tablet-landscape();
+
+}
+
+/* Query: Netbook */
+@media @netbook {
+
+	div#layout-mode,
+	div#layout-mode:after {
+		content: "Netbook";
+	}
+
+	.hide-for-netbook {
+		display: none!important;
+	}
+
+	.layout, .deux, .columns, .grid, .narrow-layout {
+
+		.col-a, .col-b {
+			float: left;
+		}
+
+	}
+
+	.layout {
+
+		.col-a,
+		.col-b {
+			width: 68%;
+		}
+
+		.col-a.sidebar,
+		.col-b.sidebar {
+			width: 28%;
+		}
+
+		.col-a {
+			padding-right: 5%;
+		}
+
+		.col-a.sidebar {
+			padding-right: 0;
+		}
+
+		.col-b {
+			padding-left: 5%;
+		}
+
+		.col-b.sidebar {
+			padding-left: 0;
+		}
+
+	}
+
+	.deux {
+
+		.col-a,
+		.col-b {
+			width: 47%;
+		}
+
+		.col-a {
+			margin-right: 3%;
+		}
+
+		.col-b {
+			margin-left: 3%;
+		}
+
+	}
+
+	.columns {
+
+		.col-a,
+		.col-b,
+		.col-c {
+			width: 33.3%;
+		}
+
+		.col-b {
+			margin-left: 2%;
+			margin-right: 2%;
+		}
+
+		.col-d {
+			margin-top: 1%;
+			width: 100%;
+			clear: both;
+		}
+
+	}
+
+	.grid {
+
+		.col-a,
+		.col-b,
+		.col-c,
+		.col-d {
+			width: 25%;
+		}
+
+	}
+
+	.narrow-layout {
+
+		> .col-a,
+		> .col-b {
+			width: 70%;
+		}
+
+		> .col-a.sidebar,
+		> .col-b.sidebar {
+			margin-right: 0;
+			margin-left: 0;
+			width: 25%;
+		}
+
+		> .col-a {
+			margin-right: 5%;
+			margin-left: 0;
+		}
+
+		> .col-b {
+			margin-right: 0;
+			margin-left: 5%;
+		}
+
+	}
+
+	@import "CodeLeaf/MediaQuery/Netbook.less";
+	@import "CodeLeaf/Typography/Netbook.less";
+
+	.media-netbook();
+
+}
+
+/* Query: Desktop */
+@media @desktop {
+
+	div#layout-mode,
+	div#layout-mode:after {
+		content: "Desktop";
+	}
+
+	.hide-for-desktop {
+		display: none!important;
+	}
+
+	@import "CodeLeaf/MediaQuery/Desktop.less";
+
+	.media-desktop();
+
+}
