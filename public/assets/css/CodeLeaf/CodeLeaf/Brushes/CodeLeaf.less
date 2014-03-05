@@ -1,0 +1,138 @@
+pre.codeleaf {
+
+	@swatch_comments:					#666;
+	@swatch_punctuation: 			#b0b8bd;
+	@swatch_brackets:					#90979b;
+	@swatch_strings:					#c3da8b;
+	@swatch_delimiter:				#99babd;
+
+	@swatch_keyword:					#99e3f5;
+	@swatch_visibility:				#6eb7ce;
+	@swatch_construct:				#ea9696;
+	@swatch_function:					#8bd9bd;
+
+	@swatch_variable:					#f7be78;
+	@swatch_constant:					#a58ac9;
+	@swatch_boolean:					#ee7272;
+	@swatch_numeric:					#f56a33;
+
+
+	/**
+	 *	Base
+	 */
+
+	background: #242729;
+	color: #fefefe;
+
+
+
+	/**
+	 *	Mode: Generics
+	 */
+
+	.comment,
+	.comment-multiline,
+	.comment-single-line {
+		color: @swatch_comments;
+	}
+
+	.punctuation {
+		color: @swatch_punctuation;
+	}
+
+	.bracket {
+		color: @swatch_brackets;
+	}
+
+	.string {
+		color: @swatch_strings;
+	}
+
+
+
+	/**
+	 *	Mode: PHP
+	 */
+
+	&.php {
+
+		.delimiter-tags {
+			background: rgba(0, 0, 0, .1);
+			color: @swatch_function;
+		}
+
+		.keyword {
+			color: @swatch_keyword;
+		}
+
+		.class-name {
+			color: #fff;
+		}
+
+		.class-definition {
+
+			.reserved {
+				color: @swatch_visibility;
+			}
+
+		}
+
+		.inheritance {
+
+			.keyword {
+				color: @swatch_constant;
+			}
+
+		}
+
+		.method {
+
+			.reserved {
+				color: @swatch_construct;
+			}
+
+			.magic {
+				color: @swatch_constant;
+			}
+
+			.static {
+				color: #fff;
+			}
+
+			.visibility {
+				color: @swatch_visibility;
+			}
+
+		}
+
+		.function {
+
+			.name {
+				color: @swatch_function;
+			}
+
+			.class-name {
+				color: @swatch_constant;
+			}
+
+		}
+
+		.construct {
+			color: @swatch_construct;
+		}
+
+		.constant {
+			color: @swatch_constant;
+		}
+
+		.boolean {
+			color: @swatch_boolean;
+		}
+
+		.variable {
+			color: @swatch_variable;
+		}
+
+	}
+
+}
